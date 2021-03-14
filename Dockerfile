@@ -1,7 +1,16 @@
-FROM centos:latest
+FROM ubuntu:18.04
+
 MAINTAINER Anushka Mathur
-RUN yum -y install httpd
-COPY index.html /var/www/html/
-CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
+
+RUN apt-get update
+
+RUN apt-get install vim wget curl net-tools -y
+
+RUN apt-get install nginx -y
+
+CMD ["nginx", "-g", "daemon off;"]
+
+
 EXPOSE 80
 
+                                                                                                                 
